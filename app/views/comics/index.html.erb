@@ -1,0 +1,9 @@
+<h1>All My Comcics</h1>
+
+<% @comics. each do |comic| %>
+
+    <div>
+    <%= link_to(comic.title_and_category, comic_path(comic) )%>
+    </div>
+
+    <% end %>

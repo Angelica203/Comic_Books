@@ -1,0 +1,12 @@
+<h1>Your Comic</h1>
+
+<h2><%= @comic.title_and_category %></h2>
+
+<p>Category: <%= @comic.category %></p>
+
+<p>Published: <%= @comic.published %></p>
+
+ <p>Price: <%= @comic.display_price %></p>
+
+<%= link_to('edit comic', edit_comic_path(@comic)) %><br>
+<%= link_to('delete comic', comic_path(@comic), method: 'delete') %>
