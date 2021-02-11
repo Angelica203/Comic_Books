@@ -5,6 +5,8 @@ class CreateComics < ActiveRecord::Migration[6.1]
       t.string :category
       t.integer :published
       t.float :price
+      t.string :user_id
+
       t.timestamps
     end
   end

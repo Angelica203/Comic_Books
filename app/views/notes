@@ -1,4 +1,4 @@
   <%= link_to("Most Popular Comic", popular_comic_path) %>
 
 
-form_for writes out methods/the form. itd like macros
+form_for writes out methods/the form. itd like macros 

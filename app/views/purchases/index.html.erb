@@ -1,0 +1,9 @@
+<h3>All purchases<h3>
+
+<% @purchases. each do |purchase| %>
+
+    <div>
+    <%= link_to(purchase.item, purchase_path(purchase) )%>
+    </div>
+
+    <% end %>

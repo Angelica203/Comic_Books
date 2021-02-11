@@ -18,7 +18,7 @@ class ComicsController < ApplicationController
 
     def create
         @comic = Comic.new(comic_params)
-        if@comic.save
+        if @comic.save
         redirect_to comic_path(@comic)
         else
             render :new
@@ -36,14 +36,16 @@ class ComicsController < ApplicationController
     end
 
     def destroy
-        comic = Comic.find(params[:id])
-        comic.destroy
-        redirect_to comic_path
+        
+        @comic = Comic.find(params[:id])
+        @comic.destroy
+        redirect_to comics_path
     end
 
     private
 
     def comic_params
+        params[:comic][:price_confirmation] = params[:comic][:price_confirmation].to_f 
         params.require(:comic).permit(:title, :category, :published, :price)
     end
 

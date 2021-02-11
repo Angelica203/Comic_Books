@@ -1,4 +1,4 @@
 class Purchase < ApplicationRecord
-    belongs_to :comics
-    belongs_to :users
+    belongs_to :comic
+    belongs_to :user
 end
