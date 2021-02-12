@@ -45,7 +45,7 @@ class ComicsController < ApplicationController
     private
 
     def comic_params
-        params[:comic][:price_confirmation] = params[:comic][:price_confirmation].to_f 
+        # params[:comic][:price_confirmation] = params[:comic][:price_confirmation].to_f 
         params.require(:comic).permit(:title, :category, :published, :price)
     end
 

@@ -2,3 +2,22 @@
 
 
 form_for writes out methods/the form. itd like macros 
+*form_for is url reliant
+using it to create a model, make validations, form- for is checking for the attribute calling for the writer methods
+
+f.collection_select {argument, collection}#:brand_id, Brand.all, :id,:name, prompt:t promts:true
+#comic view action ^
+
+index#comic
+<% flash[:message] %>
+
+
+omniauth = github.com.omniauth/omniauth
+pp : pretty print
+
+
+
+questions
+can i render my comic after its created to my purchase page so the user can continue on with transaction?
+
+for users controller action since we are creating our login logic in session does the user controller have the crud functionality?

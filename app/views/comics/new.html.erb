@@ -1,4 +1,5 @@
-<h3>New Comic</h3>
+<h1>Comic World</h1>
+<h4>Create Your Comic Here</h4>
 
 <% if @comic.errors.any? %>
   <div id="error_explanation">
@@ -21,7 +22,8 @@
     <%= f.text_field :published %><br><br>
     <%= f.label :price %>
     <%= f.number_field :price %><br><br>
-    <%= f.submit %>
+  
+     <%= f.submit %>
 
-<% end %>
+    <% end %>
 

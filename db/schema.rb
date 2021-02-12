@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_192117) do
+ActiveRecord::Schema.define(version: 2021_02_10_162313) do
 
   create_table "comics", force: :cascade do |t|
     t.string "title"
     t.string "category"
     t.integer "published"
     t.float "price"
+    t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_comics_on_user_id"
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.string "item"
-    t.integer "number_comics"
-    t.float "amount_paid"
+    t.string "location"
+    t.float "purchase_total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "comic_id", null: false
@@ -45,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_02_10_192117) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "comics", "users"
   add_foreign_key "purchases", "comics"
   add_foreign_key "purchases", "users"
 end

@@ -7,8 +7,8 @@ class Comic < ApplicationRecord
 
     has_many :purchases
     has_many :users, through: :purchases
-    belongs_to :user
-
+    # belongs_to :purchase
+    # accepts_nested_attributes_for :purchases
     
     
     def title_and_category
