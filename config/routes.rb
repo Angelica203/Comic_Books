@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get 'auth/:provider/callback', to: 'sessions#omniauth'
-  resources :comics do 
-   resources :purchases, shallow: true      #only: [:index, :show]
-  end
-  resources :purchases
-  resources :users
-  resources :sessions
-  root to: "static#home"
+  root to: 'sessions#welcome'
 
+  get '/signup', to: 'users#new'
+
+
+
+  resources :comics do 
+  resources :purchases, shallow: true      #only: [:index, :show]
+  end
+  resources :users
+  resources :sessions 
+  
+
+
+
+
+
+  get 'auth/:provider/callback', to: 'sessions#omniauth'
+
+  
 
   # get '/comics', to: 'comics#index'
   # post '/comics', to: 'comics#create'
@@ -18,3 +28,4 @@ Rails.application.routes.draw do
   
 
 end
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

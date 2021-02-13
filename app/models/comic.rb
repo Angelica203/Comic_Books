@@ -7,7 +7,7 @@ class Comic < ApplicationRecord
 
     has_many :purchases
     has_many :users, through: :purchases
-    # belongs_to :purchase
+    belongs_to :purchase
     # accepts_nested_attributes_for :purchases
     
     
