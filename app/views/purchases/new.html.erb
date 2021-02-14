@@ -1,9 +1,12 @@
 <h1>Purchases</h1>
-<%= form_for @purchase do |f| %>
+
+
+<%= form_for(@purchase) do |f| %>
     <%= f.label :location %>
     <%= f.text_field :location %><br><br>
     <%= f.label :purchase_total %>
     <%= f.number_field :purchase_total %><br><br>
+    <% f.hidden_field :comic_id, :value => @comic.id %>
     <%= f.submit %>
 
 <% end %>

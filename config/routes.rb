@@ -1,22 +1,33 @@
 Rails.application.routes.draw do
   root to: 'sessions#welcome'
-
-  get '/signup', to: 'users#new'
-
+  get 'auth/:provider/callback', to: 'sessions#omniauth'
 
 
-  resources :comics do 
-  resources :purchases, shallow: true      #only: [:index, :show]
-  end
-  resources :users
-  resources :sessions 
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/welcome', to: 'sessions#welcome'
+  get 'authorized', to: 'sessions#page_requires_login'
+  delete '/logout', to: 'sessions#destroy'
   
 
 
 
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
+  get '/users/:id', to: 'users#show', as: 'user'
 
 
-  get 'auth/:provider/callback', to: 'sessions#omniauth'
+  resources :comics do 
+  resources :purchases, shallow: true     
+  end
+  resources :users
+  resources :sessions 
+  resources :comics
+
+
+
+
+
 
   
 

@@ -11,9 +11,19 @@ f.collection_select {argument, collection}#:brand_id, Brand.all, :id,:name, prom
 index#comic
 <% flash[:message] %>
 
+routes( "static#home")
+
+show user#action
+<h1>My Account</h1>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+
+
 
 omniauth = github.com.omniauth/omniauth
 pp : pretty print
+
+
 
 
 

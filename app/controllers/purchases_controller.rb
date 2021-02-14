@@ -2,9 +2,16 @@ class PurchasesController < ApplicationController
     
     
     def new
-        @comic = Comic.find_by_id(params[:comic_id]) 
-        @purchase= @ comic.purchases.build(purchase_params)   
+        if params[:comic_id] && @comic = Comic.find_by_id(params[:comic_id]) 
+            @purchase = @comic.purchases.build 
+              else
+             @purchase = Purchase.new
+          end
     end
+
+        # @comic = Comic.find_by_id(params[:comic_id]) 
+        # @purchase = @comic.purchases.build(purchase_params)   
+
 
     def show
         @purchase = Purchase.find(params[:id])
@@ -26,7 +33,8 @@ class PurchasesController < ApplicationController
 
     private
 
-    def purchase_parmas
-        params.require(:purchase).permit(:location, :purchase_total)
+    def purchase_params
+        # byebug
+        params.require(:purchase).permit(:location, :purchase_total, :comic_id, :user_id)
     end
 end

@@ -1,0 +1,11 @@
+<h1>Welcome To The Comic World</h1>
+
+<% if logged_in? %>
+
+    <h1>You are Logged in, <%= current_user.username %></h1>
+
+    <% end %>
+
+    
+<h4> <%= link_to 'Log In', '/login' %> | <%= link_to 'Sign Up', '/signup' %> to continue </h4>
+<%= link_to("Login with Google", '/auth/google_oauth2', method: :post) %> 

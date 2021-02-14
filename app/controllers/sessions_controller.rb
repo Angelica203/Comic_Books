@@ -1,26 +1,32 @@
 class SessionsController < ApplicationController
 
   def welcome
-    if logged_in?
-      redirect_to user_path(current_user)
-    end
   end
 
   def new
       @user = User.new
   end
 
-  def create
-      if user = User.authenticate(params[:username], params[:email], params[:password])
-          # Save the user ID in the session so it can be used in
-          # subsequent requests
-        session[:current_user_id] = user.id
-        redirect_to   user_path(user)      #root_url
-      else
-        redirect_to comic_path
+  # def create
+  #    byebug
+  #     if user = User.authenticate(params[:username], params[:password])
+  #       session[:current_user_id] = user.id
+  #       redirect_to user_path(user) 
+  #     else     
+  #       redirect_to '/login'
+  #     end
+  # end
 
-      end
+  def create
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect_to   '/welcome'     
+    else
+      flash[:message] = "Incorrect cradentials, please try again"
+      redirect_to '/login' 
   end
+end
 
    def destroy
         session.delete(:user_id)

@@ -16,10 +16,19 @@ class ComicsController < ApplicationController
         @comic = Comic.new
     end
 
+    # def create
+    #     @comic = Comic.new(comic_params)
+    #     if @comic.save
+    #     redirect_to comic_path(@comic)
+    #     else
+    #         render :new
+    #     end
+    # end
+
     def create
-        @comic = Comic.new(comic_params)
+        @comic = current_user.comics.build(comic_params)
         if @comic.save
-        redirect_to comic_path(@comic)
+            redirect_to comic_path(@comic)
         else
             render :new
         end
@@ -45,13 +54,8 @@ class ComicsController < ApplicationController
     private
 
     def comic_params
-        # params[:comic][:price_confirmation] = params[:comic][:price_confirmation].to_f 
+        params[:comic][:price_confirmation] = params[:comic][:price_confirmation].to_f 
         params.require(:comic).permit(:title, :category, :published, :price)
     end
-
-
-
-
-
     
 end

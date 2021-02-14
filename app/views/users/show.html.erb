@@ -1,7 +1,5 @@
-<h1>My Account</h1>
-
-<p>Username: <%= @user.username %></p>
-
-<p>Email: <%= @user.email %></p>
 
 
+<h1>Welcome <%= @user.username %></h1>
+
+<%= link_to 'Log Out', logout_path, method: "delete" %> 
