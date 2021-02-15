@@ -27,6 +27,8 @@ class ComicsController < ApplicationController
 
     def create
         @comic = current_user.comics.build(comic_params)
+        # @comic = @purchase.comics.build(comic_params)
+        # @comic.user = current_user
         if @comic.save
             redirect_to comic_path(@comic)
         else
@@ -55,7 +57,7 @@ class ComicsController < ApplicationController
 
     def comic_params
         params[:comic][:price_confirmation] = params[:comic][:price_confirmation].to_f 
-        params.require(:comic).permit(:title, :category, :published, :price)
+        params.require(:comic).permit(:title, :category, :published, :price, purchase_attributes: [:location, :purchase_total])
     end
     
 end

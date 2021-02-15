@@ -1,0 +1,18 @@
+<%= render partial: 'layouts/errors', locals: { object: @comic } %>
+
+<%= render partial: 'layouts/errors', locals: {object: @comic} %>
+
+<%= form_with(model: @comic) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br><br>
+    <%= f.label :category %>
+    <%= f.select :category, ['DC', 'MCU'] %><br><br>
+    <%= f.label :published %>
+    <%= f.select(:published, 1900..2021)  %><br><br>
+    <%= f.label :price %>
+    <%= f.number_field :price %><br><br>
+  
+     <%= f.submit %>
+
+    <% end %>
+

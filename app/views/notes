@@ -18,6 +18,18 @@ show user#action
 <p>Username: <%= @user.username %></p>
 <p>Email: <%= @user.email %></p>
 
+purchase view:
+<%= form_for(@purchase) do |f| %>
+    <%= f.label :location %>
+    <%= f.text_field :location %><br><br>
+    <%= f.label :purchase_total %>
+    <%= f.number_field :purchase_total %><br><br>
+    <% f.hidden_field :comic_id, :value => @comic.id %>
+    <%= f.submit %>
+
+<% end %>
+
+
 
 
 omniauth = github.com.omniauth/omniauth

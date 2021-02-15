@@ -7,6 +7,6 @@ has_secure_password
 
 validates :username, :email, presence: true
 validates :email, uniqueness: true
-# validates :password_confirmation. presence: true
+# validates :password_confirmation, presence: true
 
 end

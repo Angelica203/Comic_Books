@@ -1,6 +1,4 @@
-<h1>Purchases</h1>
-<%= render partial: 'layouts/errors', locals: {object: @purchase} %>
-
+<h1> Edit Purchase </h1>
 <%= form_for ([@comic, @purchase]) do |f| %>
     <%= f.label :location %>
     <%= f.text_field :location %><br><br>
