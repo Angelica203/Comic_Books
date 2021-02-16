@@ -3,7 +3,8 @@
 <% @purchases.each do |purchase| %>
 
     <div>
-    <%= link_to(purchase.item, purchase_path(purchase) )%>
+    <%= link_to(purchase.purchase_total, purchase_path(purchase) )%> - <%= purchase.user.username %>
     </div>
-
     <% end %>
+    <br>
+    <%= link_to("Your profile", user_path(current_user)) %>

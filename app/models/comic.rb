@@ -6,8 +6,8 @@ class Comic < ApplicationRecord
 
 
     has_many :purchases
-    has_many :users, through: :purchases
-    # belongs_to :purchase
+    has_many :purchasers, through: :purchases, source: :user   #telling it where to look
+    belongs_to :user
     accepts_nested_attributes_for :purchases
     
     
@@ -15,14 +15,14 @@ class Comic < ApplicationRecord
         "#{self.title} : #{self.category}"
     end
 
-    def display_price
-        split_price = self.price.to_s.split(".")
-        if split_price[1].length == 1
-            split_price[1] << "0"
-        elsif split_price[1].length == 0
-            split_price[1] << "00"
-        end
-        display = split_price.join(".")
-        "$#{display}"
-    end
+#     def display_price
+#         split_price = self.price.to_s.split(".")
+#         if split_price[1].length == 1
+#             split_price[1] << "0"
+#         elsif split_price[1].length == 0
+#             split_price[1] << "00"
+#         end
+#         display = split_price.join(".")
+#         "$#{display}"
+#     end
 end

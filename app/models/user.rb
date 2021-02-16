@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 has_many :purchases
 has_many :comics, through: :purchases
- has_many :comics #user create
+has_many :comics #user create
 
 has_secure_password
 

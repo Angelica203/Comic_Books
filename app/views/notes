@@ -27,19 +27,19 @@ purchase view:
     <% f.hidden_field :comic_id, :value => @comic.id %>
     <%= f.submit %>
 
-<% end %>
-
-
-
+<% end %
 
 omniauth = github.com.omniauth/omniauth
 pp : pretty print
 
-
-
+purchase show
+<h4><div>$<%= @purchase.purchase_total %></div></h4>
 
 
 questions
-can i render my comic after its created to my purchase page so the user can continue on with transaction?
+ 
+ need to create a scope methods
+ need for the comic the current user purchases it show  the comic they purchased
 
-for users controller action since we are creating our login logic in session does the user controller have the crud functionality?
+ do scope methods alphabetical
+ protect edit update delete purchases, conditioning conttroller and view hide the edit and delete

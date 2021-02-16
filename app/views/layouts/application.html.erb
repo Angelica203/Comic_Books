@@ -13,6 +13,9 @@
   <body>
 <br><br>
 
+<% if flash[:message] %>
+<%= flash[:message] %>
+<% end %>
 <% if logged_in? %>
 <%= link_to 'Log Out', logout_path, method: "delete" %> |
 <%= link_to("All Comic", comics_path) %> |

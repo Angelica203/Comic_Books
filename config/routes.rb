@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   get '/users/:id', to: 'users#show', as: 'user'
 
-
+  resources :purchases, only: :index
   resources :comics do 
   resources :purchases, shallow: true     
   end

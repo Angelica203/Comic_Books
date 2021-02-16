@@ -1,5 +1,9 @@
 <br><br>
 <%= @purchase.comic.title %>
 <h3><div><%= @purchase.location %></div></h3>
-<h4><div>$<%= @purchase.purchase_total %></div></h4>
+<%= number_to_currency(@purchase.purchase_total) %>
+
+<%= link_to('edit purchase', edit_purchase_path(@purchase)) %><br>
+<%= link_to('delete purchase', purchase_path(@purchase), method: 'delete') %><br>
+
 
