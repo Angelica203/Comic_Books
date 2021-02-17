@@ -34,7 +34,7 @@ class ComicsController < ApplicationController
 
     def destroy
         # @comic = Comic.find(params[:id])
-        @comic.destroy
+        @comic.delete
         redirect_to comics_path
     end
 

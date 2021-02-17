@@ -11,7 +11,7 @@
 
  <% if @comic.user == current_user %>
     <%= link_to('edit comic', edit_comic_path(@comic)) %><br>
-   <%= link_to('delete comic', comic_path(@comic), method: 'delete') %><br>
+   <%= link_to('delete comic', @comic, method: 'delete') %><br>
 <% end %> 
 
 <%= link_to('purchase comic', new_comic_purchase_path(@comic)) %><br>
