@@ -1,9 +1,13 @@
 <br><br>
-<%= @purchase.comic.title %>
-<h3><div><%= @purchase.location %></div></h3>
-<%= number_to_currency(@purchase.purchase_total) %>
+<h3><%= @purchase.comic.title %></h3>
+<h3><%= @purchase.location %></h3>
+<%= number_to_currency(@purchase.purchase_total) %><br>
 
+
+<br><% if @purchase.user == current_user %><br>
 <%= link_to('edit purchase', edit_purchase_path(@purchase)) %><br>
 <%= link_to('delete purchase', purchase_path(@purchase), method: 'delete') %><br>
+<% end %>
+<%= link_to("Your account", user_path(current_user)) %>
 
 

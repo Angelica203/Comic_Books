@@ -6,7 +6,7 @@
 
 <p>Published: <%= @comic.published %></p>
 
- <%= number_to_currency(@comic.price) %>  
+ <%= number_to_currency(@comic.price) %><br><br> 
 
 
  <% if @comic.user == current_user %>
@@ -14,6 +14,6 @@
    <%= link_to('delete comic', comic_path(@comic), method: 'delete') %><br>
 <% end %> 
 
-<h3><%= link_to('purchase comic', new_comic_purchase_path(@comic)) %></h3>
+<%= link_to('purchase comic', new_comic_purchase_path(@comic)) %><br>
 <%= link_to('view purchases', comic_purchases_path(@comic)) %>
 

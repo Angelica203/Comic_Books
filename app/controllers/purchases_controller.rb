@@ -39,7 +39,7 @@ class PurchasesController < ApplicationController
 
       def update
         @purchase.update(purchase_params) 
-        redirect_to purchase_path(purchase)
+        redirect_to purchase_path(@purchase)
  
       end
 
