@@ -1,6 +1,6 @@
 <%= render partial: 'layouts/errors', locals: { object: @purchase } %>
 
-<%= form_with(model: @comic, @purchase) do |f| %>
+<%= form_for([@comic, @purchase]) do |f| %>
     <%= f.label :location %>
     <%= f.text_field :location %><br><br>
     <%= f.label :purchase_total %>

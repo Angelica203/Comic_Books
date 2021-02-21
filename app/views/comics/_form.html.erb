@@ -1,6 +1,6 @@
 <%= render partial: 'layouts/errors', locals: { object: @comic } %>
 
-<%= form_with(model: @comic) do |f| %>
+<%= form_for(@comic) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %><br><br>
     <%= f.label :category %>

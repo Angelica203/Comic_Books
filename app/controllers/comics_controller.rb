@@ -3,6 +3,8 @@ class ComicsController < ApplicationController
  before_action :authorized, only: [:edit, :update, :destroy]
     def index
         @comics = Comic.all
+        @comics = Comic.order_by_title
+        # byebug
     end
 
     def show
@@ -34,7 +36,7 @@ class ComicsController < ApplicationController
 
     def destroy
         # @comic = Comic.find(params[:id])
-        @comic.delete
+        @comic.destroy
         redirect_to comics_path
     end
 

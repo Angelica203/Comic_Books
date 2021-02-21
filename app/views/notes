@@ -41,6 +41,9 @@ purchashae show view
 partial purchas form
     <%= form_for ([@comic, @purchase]) do |f| %>
 
+purchase show page
+<h3><%= @purchase.comic.title %></h3>
+
 
 
 questions

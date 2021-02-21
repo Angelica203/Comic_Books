@@ -1,6 +1,7 @@
 class PurchasesController < ApplicationController
   before_action :set_purchase, only: [:show, :edit, :update, :destroy]
   before_action :authorized, only: [:edit, :update, :destroy]
+  
 
     def new
         if params[:comic_id] && @comic = Comic.find_by_id(params[:comic_id])
@@ -45,7 +46,7 @@ class PurchasesController < ApplicationController
 
       def destroy
         @purchase.destroy
-        redirect_to purchase_path
+        redirect_to purchases_path
       end
     
 
