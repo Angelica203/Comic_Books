@@ -11,25 +11,8 @@ class Comic < ApplicationRecord
         if search
           self.where("title LIKE ?", "%#{search}%")
         end
-      end
+    end
     
-    # def self.search(search)
-    #     if search
-    #         comic = Comic.find_by(title: search)
-    #         if comic
-    #             self.where(comic: title)
-    #     else 
-    #         @comic.all
-    #     end
-    #     else
-    #         @comic.all
-    #     end
-    #  end
-    
-    # before_save :upcase_comic
-    # def upcase_comic
-    #     self.comic.upcase!
-    # end
 
     scope :order_by_title, -> { reorder("lower(title) ASC") }
 

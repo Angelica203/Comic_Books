@@ -4,11 +4,10 @@ class ComicsController < ApplicationController
     
  
  def index
-     @comics = Comic.order_by_title
-     if params[:search]
+          if params[:search]
         @comics = Comic.search(params[:search])
       else
-        @comics = Comic.all
+        @comics = Comic.order_by_title
       end
     end
 
