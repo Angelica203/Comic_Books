@@ -6,6 +6,26 @@ class Comic < ApplicationRecord
     has_many :purchasers, through: :purchases, source: :user   #telling it where to look
     belongs_to :user
     accepts_nested_attributes_for :purchases
+
+    def self.search(search)
+        if search
+          self.where("title LIKE ?", "%#{search}%")
+        end
+      end
+    
+    # def self.search(search)
+    #     if search
+    #         comic = Comic.find_by(title: search)
+    #         if comic
+    #             self.where(comic: title)
+    #     else 
+    #         @comic.all
+    #     end
+    #     else
+    #         @comic.all
+    #     end
+    #  end
+    
     # before_save :upcase_comic
     # def upcase_comic
     #     self.comic.upcase!

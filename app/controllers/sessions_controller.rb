@@ -43,7 +43,7 @@ end
         end
           if @user.save
              session[:user_id] = @user.id
-             redirect_to new_comic_path
+             redirect_to  root_path           #new_comic_path
           else
             flash[:message] = user.errors.full_messages.join(", ")
             redirect_to comics_path

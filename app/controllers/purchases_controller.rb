@@ -12,7 +12,7 @@ class PurchasesController < ApplicationController
       end    
 
     def show
-        @purchase = Purchase.find_by_id(params[:id])
+        # @purchase = Purchase.find_by_id(params[:id])
     end
     
     def index
@@ -55,7 +55,7 @@ class PurchasesController < ApplicationController
 
     def purchase_params
         # byebug
-        params.require(:purchase).permit(:location, :purchase_total)
+        params.require(:purchase).permit(:location, :purchase_total)     #security measures
     end
 
     def set_purchase

@@ -1,10 +1,15 @@
 class ComicsController < ApplicationController
  before_action :set_comic, only: [:show, :edit, :update, :destroy]
  before_action :authorized, only: [:edit, :update, :destroy]
-    def index
+    
+ 
+ def index
+     @comics = Comic.order_by_title
+     if params[:search]
+        @comics = Comic.search(params[:search])
+      else
         @comics = Comic.all
-        @comics = Comic.order_by_title
-        # byebug
+      end
     end
 
     def show
@@ -43,7 +48,7 @@ class ComicsController < ApplicationController
     private
 
     def comic_params
-        params.require(:comic).permit(:title, :category, :published, :price)
+        params.require(:comic).permit(:title, :category, :published, :price, :search)
     end
      
     def set_comic

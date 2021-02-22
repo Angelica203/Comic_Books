@@ -21,8 +21,11 @@ Rails.application.routes.draw do
   resources :purchases, shallow: true     
   end
   resources :users, only: [:new, :create, :show]
-  resources :comics
+  # resources :comics
 end
   
+# get '/comics/new', to: 'comics#new', as: 'new_comic'
+# post '/comics', to: 'comics#create'
+# get '/comics/:id', to: 'comics#show', as: 'comic'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
